@@ -138,6 +138,8 @@ add_action( 'widgets_init', 'amethystscores_widgets_init' );
  * Enqueue scripts and styles.
  */
 function amethystscores_scripts() {
+	// Enqueue Google Fonts: Source Sans Pro and PT Sans
+	wp_enqueue_style( 'amethystscores-fonts', 'https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap' );
 	wp_enqueue_style( 'amethystscores-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'amethystscores-style', 'rtl', 'replace' );
 
