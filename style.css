@@ -404,8 +404,21 @@ optgroup,
 textarea {
 	color: #404040;
 	font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
-	font-size: 1rem;
+	font-size: 18px;
+	font-size: 1.125rem;
 	line-height: 1.5;
+}
+
+@media screen and (min-width: 700px) {
+	body,
+	button,
+	input,
+	select,
+	optgroup,
+	textarea {
+		font-size: 20px;
+		font-size: 1.25rem;
+	}
 }
 
 h1,
@@ -417,6 +430,30 @@ h6 {
 	clear: both;
 	font-family: 'Source Sans Pro', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2.6em;
+}
+
+h3 {
+	font-size: 2.2em;
+}
+
+h4 {
+	font-size: 2em;
+}
+
+h5 {
+	font-size: 1.8em;
+}
+
+ h6 {
+	 font-size: 1.6em;
+ }
 
 p {
 	margin-bottom: 1.5em;
@@ -641,6 +678,22 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
+
+.site-content {
+	padding: 1em;
+}
+
+@media screen and (min-width: 600px) {
+	.site-content {
+		padding: 2em;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.site-content {
+		padding: 4em;
+	}
+}
 
 /*--------------------------------------------------------------
 # Components
