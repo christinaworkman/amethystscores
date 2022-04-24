@@ -103,6 +103,43 @@ function amethystscores_setup() {
 add_action( 'after_setup_theme', 'amethystscores_setup' );
 
 /**
+ * Register custom fonts.
+ */
+function amethystscores_fonts_url() {
+	$fonts_url = '';
+
+	/*
+	 * translators: If there are characters in your language that are not supported
+	 * by Source Sans Pro and PT Serif, translate this to 'off'. Do not translate into your own language.
+	 */
+	$source_sans_pro = _x( 'on', 'Source Sans Pro font: on or off', 'amethystscores' );
+	$pt_serif = _x( 'on', 'PT serif font: on or off', 'amethystscores' );
+
+	$font_families = array();
+
+	if ( 'off' !== $source_sans_pro ) {
+		$font_families[] = 'Source Sans Pro:400,400i,700,900';
+	}
+
+	if ( 'off' !== $pt_serif ) {
+		$font_families[] = 'PT Serif:400,400i,700,700i';
+	}
+
+	if ( in_array( 'on', array($source_sans_pro, $pt_serif) ) ) {
+
+		$query_args = array(
+			'family'  => urlencode( implode( '|', $font_families ) ),
+			'subset'  => urlencode( 'latin,latin-ext' ),
+			'display' => urlencode( 'fallback' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	return esc_url_raw( $fonts_url );
+}
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -139,7 +176,7 @@ add_action( 'widgets_init', 'amethystscores_widgets_init' );
  */
 function amethystscores_scripts() {
 	// Enqueue Google Fonts: Source Sans Pro and PT Sans
-	wp_enqueue_style( 'amethystscores-fonts', 'https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap' );
+	wp_enqueue_style( 'amethystscores-fonts', amethystscores_fonts_url() );
 	wp_enqueue_style( 'amethystscores-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'amethystscores-style', 'rtl', 'replace' );
 
