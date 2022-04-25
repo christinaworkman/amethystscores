@@ -722,9 +722,14 @@ textarea {
 }
 
 .site-branding {
-	align-items: center;
+	/* align-items: center; */
 	display: flex;
 	min-height: 80px;
+}
+
+.site-branding-text {
+	flex-direction: column;
+	justify-content: center;
 }
 
 .custom-logo-link {
@@ -777,10 +782,12 @@ textarea {
 @media screen and (min-width: 900px) {
 	.site-header {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
 	}
 
 	.site-branding {
+		flex: 1 0 auto;
 		width: 35%;
 	}
 
