@@ -28,6 +28,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Generic
 	- Normalize
 	- Box sizing
+# Variables
 # Base
 	- Typography
 	- Elements
@@ -391,6 +392,17 @@ html {
 }
 
 /*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+:root {
+	--dark-purple: #42085e;
+	--med-purple: #520a76;
+	--black: #13021c;
+	--sans-serif: 'Source Sans Pro', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+	--serif: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+}
+
+/*--------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
 
@@ -403,13 +415,13 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+	font-family: var(--serif);
 	font-size: 18px;
 	font-size: 1.125rem;
 	line-height: 1.5;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
 	body,
 	button,
 	input,
@@ -428,7 +440,7 @@ h4,
 h5,
 h6 {
 	clear: both;
-	font-family: 'Source Sans Pro', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+	font-family: var(--sans-serif);
 }
 
 h1 {
@@ -698,6 +710,91 @@ textarea {
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
+
+/* Header
+--------------------------------------------- */
+.site-header {
+	background-color: var(--dark-purple);
+	color: #fff;
+	font-family: var(--sans-serif);
+	padding: 1em;
+	position: relative;
+}
+
+.site-branding {
+	/* align-items: center; */
+	display: flex;
+	min-height: 80px;
+}
+
+.site-branding-text {
+	flex-direction: column;
+	justify-content: center;
+}
+
+.custom-logo-link {
+	margin-right: 1em;
+}
+
+.custom-logo-link img {
+	display: block;
+	height: 80px;
+	width: auto;
+}
+
+.site-title {
+	font-size: 2.2em;
+	font-weight: 900;
+	line-height: 1em;
+	margin: 0;
+	padding: 0;
+}
+
+.site-title a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.site-title a:hover,
+.site-title a:focus {
+	text-decoration: underline;
+}
+
+.site-description {
+	font-style: italic;
+	font-weight: 400;
+	margin: 0;
+}
+
+.header-image {
+	display: block;
+	max-height: 60vh;
+	object-fit: cover;
+	width: 100vw;
+}
+
+@media screen and (min-width: 600px) {
+	.site-header {
+		padding: 1em 2em;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.site-header {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.site-branding {
+		flex: 1 0 auto;
+		width: 35%;
+	}
+
+	#site-navigation {
+		width: 55%;
+	}
+}
 
 /* Navigation
 --------------------------------------------- */
