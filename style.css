@@ -722,7 +722,19 @@ textarea {
 }
 
 .site-branding {
-	min-height: 65px;
+	align-items: center;
+	display: flex;
+	min-height: 80px;
+}
+
+.custom-logo-link {
+	margin-right: 1em;
+}
+
+.custom-logo-link img {
+	display: block;
+	height: 80px;
+	width: auto;
 }
 
 .site-title {
