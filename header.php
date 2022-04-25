@@ -24,7 +24,11 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'amethystscores' ); ?></a>
-	<?php the_header_image_tag( array( 'class' => 'header-image' ) ); ?>
+	<?php 
+		if (is_front_page()) {
+			the_header_image_tag( array( 'class' => 'header-image' ) );
+		} 
+	?>
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
