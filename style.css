@@ -811,7 +811,7 @@ textarea {
 }
 
 .main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	background-color: var(--med-purple);
 	float: left;
 	position: absolute;
 	top: 100%;
@@ -831,7 +831,8 @@ textarea {
 }
 
 .main-navigation ul ul a {
-	width: 200px;
+	max-width: 600px;
+	width: auto;
 }
 
 .main-navigation ul li:hover > ul,
@@ -840,15 +841,21 @@ textarea {
 }
 
 .main-navigation li {
+	padding: 0.4em 0.75em;
 	position: relative;
 }
 
 .main-navigation a {
+	color: #fff;
 	display: block;
 	text-decoration: none;
 }
 
-/* Small menu. */
+.main-navigation a:hover {
+	text-decoration: underline;
+}
+
+/* Toggle small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
@@ -862,6 +869,33 @@ textarea {
 
 	.main-navigation ul {
 		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.main-navigation ul.children {
+		flex-direction: column;
+		min-width: 300px;
+		padding: 1em;
+	}
+
+	.main-navigation li:first-of-type {
+		padding-left: 0;
+	}
+	
+	.main-navigation li:last-of-type {
+		padding-left: 0;
+	}
+
+	.main-navigation .children li {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+}
+
+@media screen and (min-width: 56.25em) {
+
+	.main-navigation ul {
+		justify-content: flex-end;
 	}
 }
 
