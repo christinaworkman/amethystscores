@@ -12,6 +12,17 @@
 ?>
 </div><!-- .site-content -->
 	<footer id="colophon" class="site-footer">
+		<nav class="social-menu">
+			<button class="menu-toggle" aria-controls="social-menu" aria-expanded="false"><?php esc_html_e( 'Social Media Menu', 'amethystscores' ); ?></button>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'social-menu',
+						'menu_id'        => 'social-menu',
+					)
+				);
+				?>
+		</nav>
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'amethystscores' ) ); ?>">
 				<?php

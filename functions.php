@@ -50,6 +50,7 @@ function amethystscores_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'amethystscores' ),
+			'social-menu' => esc_html__( 'Social Media Links', 'amethystscores' ),
 		)
 	);
 
@@ -201,8 +202,11 @@ function amethystscores_scripts() {
 	wp_enqueue_style( 'amethystscores-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'amethystscores-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'amethystscores-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
+	wp_enqueue_script( 'amethystscores-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), _S_VERSION, true );
+	wp_localize_script( 'amethystscores-navigation', 'amethystscoresScreenReaderText', array(
+		'expand' => __( 'Expand child menu', 'amethystscores' ),
+		'collapse' => __( 'Collapse child menu', 'amethystscores' ),
+	) );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
