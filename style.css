@@ -36,6 +36,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Forms
 ## Layouts
 # Components
+	- Header
 	- Navigation
 	- Posts and pages
 	- Comments
@@ -43,6 +44,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Media
 	- Captions
 	- Galleries
+	- Footer
+	- Social media menu
 # plugins
 	- Jetpack infinite scroll
 # Utilities
@@ -1087,6 +1090,49 @@ button.dropdown-toggle {
 
 .gallery-caption {
 	display: block;
+}
+
+/* Footer
+--------------------------------------------- */
+footer {
+	background-color: var(--dark-purple);
+	color: #fff;
+	padding: 1em;
+	text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+	footer {
+		padding: 1em 2em;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	footer {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+}
+
+/* Social media menu
+--------------------------------------------- */
+.social-menu ul {
+	display: flex;
+	justify-content: space-evenly;
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.social-menu a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.social-menu a:hover, 
+.social-menu a:focus {
+	text-decoration: underline;
 }
 
 /*--------------------------------------------------------------
